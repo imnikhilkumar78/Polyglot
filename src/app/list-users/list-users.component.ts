@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
-import { usersDetails } from '../shared/services/usersDetails';
+import { User } from '../shared/services/user';
 
 @Component({
   selector: 'app-list-users',
@@ -8,15 +8,15 @@ import { usersDetails } from '../shared/services/usersDetails';
   styleUrls: ['./list-users.component.css'],
 })
 export class ListUsersComponent implements OnInit {
-  userDetails: usersDetails[];
+  userDetails: User[];
   constructor(public authService: AuthService) {}
   ngOnInit(): void {
-    this.authService.getAllUsers().then((data) => {
+    this.authService.getUserList().subscribe((data) => {
       this.userDetails = data.map((e) => {
         return {
           id: e.payload.doc.id,
-          ...e.payload.doc.data(),
-        } as usersDetails;
+          ...(e.payload.doc.data() as User), //genereic type spread is not supported
+        } as User; //User is my interface name
       });
     });
   }

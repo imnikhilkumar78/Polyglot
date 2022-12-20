@@ -1,22 +1,14 @@
 <table>
   <thead>
+    <th>UID</th>
     <th>Email</th>
-    <th>Name</th>
-    <th>Contact</th>
-    <th>Age</th>
-    <th>Bio</th>
-    <th>Skills</th>
-    <th>Projects</th>
+    <th>Verified</th>
   </thead>
   <tbody>
     <tr *ngFor="let user of userDetails">
-      <td>{{ user.UEmail }}</td>
-      <td>{{ user.UName }}</td>
-      <td>{{ user.Contact }}</td>
-      <td>{{ user.Age }}</td>
-      <td>{{ user.Bio }}</td>
-      <td>{{ user.Skills }}</td>
-      <td>{{ user.Projects }}</td>
+      <td>{{ user.uid }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.emailVerified }}</td>
     </tr>
   </tbody>
 </table>

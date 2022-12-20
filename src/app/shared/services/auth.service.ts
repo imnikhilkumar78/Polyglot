@@ -115,9 +115,8 @@ export class AuthService {
   }
 
   //List all Users
-  getAllUsers() {
-    return new Promise<any>((resolve) => {
-      this.afs.collection('User').snapshotChanges();
-    });
+
+  getUserList() {
+    return this.afs.collection('users').snapshotChanges();
   }
 }
