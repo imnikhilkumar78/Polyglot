@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+  <div class="inner-adjust">
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">User Profile</h1>
+    </div>
+    <!-- Show user data when logged in -->
+    <div class="row" *ngIf="authService.userData as user">
+      <div class="col-md-12">
+        <div class="media">
+          <div class="media-body">
+            <h1>
+              Hello:
+              <strong>{{
+                user.displayName ? user.displayName : "User"
+              }}</strong>
+            </h1>
+            <p>
+              User ID: <strong>{{ user.uid }}</strong>
+            </p>
+            <p>
+              Email: <strong>{{ user.email }}</strong>
+            </p>
+            <p>
+              Email Verified: <strong>{{ user.emailVerified }}</strong>
+            </p>
+            <div class="formGroup">
+              <input
+                type="button"
+                class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                value="Sign-Out"
+                (click)="authService.SignOut()"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<app-footer></app-footer>
