@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { ListUsersComponent } from './list-users/list-users.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
@@ -34,6 +35,11 @@ const routes: Routes = [
   {
     path: 'update-profile',
     component: UpdateProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'list-users',
+    component: ListUsersComponent,
     canActivate: [AuthGuard],
   },
 ];

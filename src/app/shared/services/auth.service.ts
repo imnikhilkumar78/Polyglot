@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../services/user';
+import { usersDetails } from './usersDetails';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
@@ -110,6 +111,13 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
+    });
+  }
+
+  //List all Users
+  getAllUsers() {
+    return new Promise<any>((resolve) => {
+      this.afs.collection('User').snapshotChanges();
     });
   }
 }
