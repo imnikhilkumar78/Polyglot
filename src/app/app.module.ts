@@ -25,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { AboutComponent } from './about/about.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AboutComponent } from './about/about.component';
     SidebarComponent,
     ViewProfileComponent,
     AboutComponent,
+    UpdateProfileComponent,
   ],
   imports: [
     BrowserModule,
