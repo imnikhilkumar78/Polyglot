@@ -1,5 +1,5 @@
-export class usersDetails {
-  id: string;
+export interface usersDetails {
+  uid: string;
   Age: string;
   Bio: string;
   Contact: number;

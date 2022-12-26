@@ -3,12 +3,13 @@ import { User } from '../services/user';
 import { usersDetails } from './usersDetails';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { FormControl, FormGroup } from '@angular/forms';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-
+import { doc, deleteDoc } from 'firebase/firestore';
 @Injectable({
   providedIn: 'root',
 })
@@ -115,8 +116,45 @@ export class AuthService {
   }
 
   //List all Users
-
   getUserList() {
     return this.afs.collection('users').snapshotChanges();
   }
+  deleteUser(uid: string) {
+    this.afs.doc('users/' + uid).delete();
+  }
+
+  //CRUD
+  getAllItems() {
+    return this.afs.collection('User').snapshotChanges();
+  }
+
+  createNewUser(userData) {
+    this.afs.collection('User').add(userData);
+  }
+
+  // deleteUserData(uid: string) {
+  //   this.afs.doc('User/' + uid).delete();
+  // }
+
+  async deleteUserData(UName: string) {
+    const delete_query = await this.afs.collection('User', (ref) =>
+      ref.where('UName', '==', UName)
+    );
+
+    await delete_query.get().subscribe(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        doc.ref.delete();
+      });
+    });
+  }
+
+  form = new FormGroup({
+    UName: new FormControl(''),
+    UEmail: new FormControl(''),
+    Age: new FormControl(''),
+    Contact: new FormControl(''),
+    Skills: new FormControl(''),
+    Projects: new FormControl(''),
+    Bio: new FormControl(''),
+  });
 }

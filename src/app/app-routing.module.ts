@@ -9,6 +9,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { AddUserInListComponent } from './add-user-in-list/add-user-in-list.component';
 // route guard
 import { AuthGuard } from './shared/guard/auth.guard';
 const routes: Routes = [
@@ -40,6 +41,11 @@ const routes: Routes = [
   {
     path: 'list-users',
     component: ListUsersComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-user-list',
+    component: AddUserInListComponent,
     canActivate: [AuthGuard],
   },
 ];

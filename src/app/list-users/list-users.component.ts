@@ -20,4 +20,7 @@ export class ListUsersComponent implements OnInit {
       });
     });
   }
+  deleteUser(uid: string) {
+    this.authService.deleteUser(uid);
+  }
 }

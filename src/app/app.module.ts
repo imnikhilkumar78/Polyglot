@@ -27,6 +27,8 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { AboutComponent } from './about/about.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ListUsersComponent } from './list-users/list-users.component';
+import { AddUserInListComponent } from './add-user-in-list/add-user-in-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
     AboutComponent,
     UpdateProfileComponent,
     ListUsersComponent,
+    AddUserInListComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
       AngularFireStorageModule,
       AngularFireDatabaseModule,
     ],
+    [FormsModule, ReactiveFormsModule],
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

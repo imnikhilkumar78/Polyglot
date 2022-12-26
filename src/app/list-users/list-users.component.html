@@ -1,14 +1,27 @@
-<table>
-  <thead>
-    <th>UID</th>
-    <th>Email</th>
-    <th>Verified</th>
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+  <thead
+    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+  >
+    <th class="py-3 px-6">UID</th>
+    <th class="py-3 px-6">Email</th>
+    <th class="py-3 px-6">Verified</th>
   </thead>
   <tbody>
-    <tr *ngFor="let user of userDetails">
-      <td>{{ user.uid }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.emailVerified }}</td>
+    <tr
+      *ngFor="let user of userDetails"
+      class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+    >
+      <td class="py-3 px-6">{{ user.uid }}</td>
+      <td class="py-3 px-6">{{ user.email }}</td>
+      <td class="py-3 px-6">{{ user.emailVerified }}</td>
+      <td class="py-3 px-6">
+        <button
+          (click)="deleteUser(user.uid)"
+          class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        >
+          Delete
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

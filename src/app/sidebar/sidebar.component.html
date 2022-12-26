@@ -135,6 +135,49 @@
 </div>
 <div class="flex flex-1 flex-col md:pl-64">
   <main>
-    <app-list-users></app-list-users>
+    <div class="overflow-x-auto relative">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        >
+          <tr>
+            <th class="py-3 px-6">Name</th>
+            <th class="py-3 px-6">Email</th>
+            <th class="py-3 px-6">Age</th>
+            <th class="py-3 px-6">Contact</th>
+            <th class="py-3 px-6">Projects</th>
+            <th class="py-3 px-6">Skills</th>
+            <th class="py-3 px-6">Bio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let user of listDetails"
+            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+          >
+            <td class="py-3 px-6">{{ user.UName }}</td>
+            <td class="py-3 px-6">{{ user.UEmail }}</td>
+            <td class="py-3 px-6">{{ user.Age }}</td>
+            <td class="py-3 px-6">{{ user.Contact }}</td>
+            <td class="py-3 px-6">{{ user.Projects }}</td>
+            <td class="py-3 px-6">{{ user.Skills }}</td>
+            <td class="py-3 px-6">{{ user.Bio }}</td>
+            <td class="py-3 px-6">
+              <button
+                (click)="deleteUserData(user.UName)"
+                class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <a
+      class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+      [routerLink]="'/add-user-list'"
+      >Add User</a
+    >
   </main>
 </div>
